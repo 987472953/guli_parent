@@ -19,7 +19,7 @@ import java.util.UUID;
 @Service
 public class FileServiceImpl implements FileService {
 
-    private static String[] TYPESTR = {".png",".jpg",".bmp",".gif",".jpeg"};
+    private static final String[] TYPE_STR = {".png",".jpg",".bmp",".gif",".jpeg"};
 
     @Override
     public String upload(MultipartFile file) {
@@ -33,7 +33,7 @@ public class FileServiceImpl implements FileService {
                    , ConstantPropertiesUtil.ACCESS_KEY_SECRET);
 
             //判断文件格式
-            for(String type:TYPESTR){
+            for(String type: TYPE_STR){
                 if (StringUtils.endsWithIgnoreCase(file.getOriginalFilename(), type)) {
                     flag = false;
                     break;
@@ -70,6 +70,7 @@ public class FileServiceImpl implements FileService {
             e.printStackTrace();
         } finally {
             // 关闭OSSClient。
+            assert ossClient != null;
             ossClient.shutdown();
         }
 
