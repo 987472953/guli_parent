@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.guli.ucenter.mapper.MemberMapper">
+
+    <!--#{}中可随便用变量名，多变量用#{0}#{1}  或者加 @Param注解-->
+    <select id="getRegisterCount" resultType="java.lang.Integer">
+        SELECT COUNT(1)
+        FROM ucenter_member
+        WHERE DATE(gmt_create) = #{value}
+    </select>
+</mapper>
