@@ -26,13 +26,14 @@ public class ConstantPropertiesUtil implements InitializingBean {
     public static String ACCESS_KEY_ID;
     public static String ACCESS_KEY_SECRET;
     public static String BUCKET_NAME;
-    public static String FILE_HOST ;
+    public static String FILE_HOST;
+
     @Override
-    public void afterPropertiesSet() throws Exception {
-        END_POINT=endpoint;
-        ACCESS_KEY_ID=keyId;
-        ACCESS_KEY_SECRET=keySecret;
-        BUCKET_NAME=bucketName;
-        FILE_HOST=fileHost;
+    public void afterPropertiesSet() {
+        END_POINT = endpoint;
+        ACCESS_KEY_ID = keyId;
+        ACCESS_KEY_SECRET = keySecret;
+        BUCKET_NAME = bucketName;
+        FILE_HOST = fileHost;
     }
 }
